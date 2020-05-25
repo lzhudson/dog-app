@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Open+Sans:wght@600&family=Oswald:wght@500&family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+$body-color: red;
+$primary-color: #2bc48a;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.container {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 0rem 0.5rem;
+	&.cards {
+		max-width: 800px;
+	}
+}
+header {
+	-webkit-box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+}
+.header-content {
+	display: flex;
+	justify-content: center;
+	padding: 1rem 0;
+	&__title {
+		color: $primary-color;
+	}
+}
+body {
+	color: $body-color;
+}
+.cards {
+	display: flex;
+	margin-top: 1rem;
+	.card {
+		width: calc(50% - 1rem);
+		margin-right: 1rem;	
+		height: 500px;
+		-webkit-box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+		-moz-box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+		box-shadow: 0px 2px 12px -2px rgba(0,0,0,0.1);
+		padding: 2rem;
+		border-radius: 5px;
+		display: flex;
+		justify-content: center;
+		& .form-dog {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+	.card:last-child {
+		margin-right: 0;
+	}
+}
+
+.input-group {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto 0.5rem auto;
+}
+.input-group input {
+	display: block;
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	color: #495057;
+}
+.input-group input:focus, .input-group select {
+	border-color: $primary-color;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(43, 196, 138, 0.25);
+}
+.input-group select {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid $primary-color;
+	border-radius: .25rem;
+	color: #495057;
+}
+input[type="submit"] {
+	border-radius: .25rem;
+	padding: 0.7rem 1.15rem;
+	background-color: $primary-color;
+	border: none;
+	color: #FFF;
+}
+
+/* Card dog */
+.card-dog {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.card-dog-image {
+		width: 200px;
+		
+		& img {
+			width: 100%;
+			border-radius: 0.25rem;
+		}
+	}
+	.card-dog-name {
+		margin-top: 1rem;
+	}
+}
+

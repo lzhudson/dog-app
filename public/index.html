@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dog App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="src/assets/img/dog.svg" class="header-content__logo">
+                <h1 class="header-content__title">Dogs</h1>
+            </div>
+        </div>
+    </header>
+
+    <section class="cards">
+        <div class="container cards">
+            <div class="card cards-card__form">
+                <form id="form-dog" class="form-dog">
+                    <div class="input-group">
+                        <input type="text" name="dog-name" id="dog-name">
+                    </div>
+                    <div class="input-group">
+                        <select name="breeds" id="breeds-select">
+                            <option value="">Selecione uma raça</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <select name="colors" id="colors-select">
+                            <option value="">Selecione uma cor</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <select name="fonts" id="fonts-select">
+                            <option value="">Selecione uma fonte</option>
+                        </select>
+                    </div>
+                    <input type="submit" name="save-dog" id="save-dog" value="Salvar Cachorro">
+                </form>
+            </div>
+
+            <div class="card card-dog">
+                <div class="card-dog-image">
+                    <img id="card-dog-image" src="" alt="">
+                </div>
+                <div class="card-dog-name">
+                    <p id="card-dog-name"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./bundle.js"></script>
+</body>
+</html>
