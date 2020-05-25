@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@500&family=Open+Sans:wght@600&family=Oswald:wght@500&family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
-$body-color: red;
+$body-color: #000;
 $primary-color: #2bc48a;
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	color: $body-color;
 }
 body {
 	font-family: 'Source Sans Pro', sans-serif;
