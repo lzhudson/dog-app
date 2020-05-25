@@ -122,12 +122,11 @@ input[type="submit"] {
 	position: fixed;
 	right: 20px;
 	top: 105px;
-	color: white;
-	display: block;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	animation: show-down 1s forwards;
+	color: white !important;
 	&.success {
 		background: #2BC48A;
 	}

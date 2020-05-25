@@ -51,6 +51,7 @@ export function showMessage(type, message) {
 	const messageEl = document.createElement('div');
 	messageEl.classList.add('message', `${type}`);
 	const messageTextEl = document.createElement('p');
+	messageTextEl.style.color = 'white';
 	messageTextEl.textContent = message;
 	messageEl.appendChild(messageTextEl);
 	document.body.appendChild(messageEl);
