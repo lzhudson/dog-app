@@ -1,4 +1,4 @@
-# Dog App
+# Dog App 🐾
 
 ## Init App
 1. Clone repository:
@@ -13,7 +13,7 @@ cd dog-app
 ```bash
 yarn
 ```
-4. Init appi in mode development:
+4. Init app in mode development:
 ```bash
 yarn dev
 ```
