@@ -28,7 +28,7 @@ header {
 	display: flex;
 	justify-content: center;
 	padding: 1rem 0;
-	&__title {
+	&-title {
 		color: $primary-color;
 	}
 }
@@ -116,12 +116,44 @@ input[type="submit"] {
 
 .message {
 	width: 250px;
-	height: 100px;
-	background: red;
+	height: 40px;
 	border-radius: 0.25rem;
 	position: fixed;
 	right: 20px;
 	top: 105px;
-	display: none;
-	color: black;
+	color: white;
+	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: show-down 1s forwards;
+	&.success {
+		background: #2BC48A;
+	}
+	&.error {
+		background: #fa685e;
+	}
+	&.end {
+		animation: show-up .3s forwards;
+	}
+}
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes show-up {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0px);
+  }
 }

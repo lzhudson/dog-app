@@ -1,4 +1,5 @@
 import { generateArrayOfProperties } from './utils';
+import { getImageDog } from './api.js';
 
 export function generateOptionsInSelect(values, field) {
 	let options = null;
@@ -11,6 +12,12 @@ export function generateOptionsInSelect(values, field) {
 	});
 	return;
 }
+export async function setImageOnCard(valueSelect) {
+	if(!valueSelect) return;
+	const cardDogImageEl = document.getElementById('card-dog-image');
+	const getImageUrl = await getImageDog(valueSelect);
+	cardDogImageEl.setAttribute('src', getImageUrl);
+}
 export function changeFont(typeFont) {
 	const dogNameEl = document.getElementById('card-dog-name');
 	dogNameEl.style.fontFamily = typeFont;
@@ -21,34 +28,41 @@ export function changeColor(color) {
 		"Vermelho": "red",
 		"Azul": "blue",
 		"Verde": "green",
-		"Yellow": "yellow",
-		"Roxo": "Roxo"
+		"Amarelo": "yellow",
+		"Roxo": "purple"
 	}
 	dogNameEl.style.color = colors[color];
 }
 function changeSelect(valueEl , selectId) {
-	console.log(valueEl);
 	const selectElement = document.getElementById(selectId);
 	const selectOptions = selectElement.options;
 	for (let opt, j = 0; opt = selectOptions[j]; j++) {
-        if (opt.value == valueEl) {
-            selectElement.selectedIndex = j;
-            break;
-        }
-    }
+		if (opt.value == valueEl) {
+			selectElement.selectedIndex = j;
+			break;
+		}
+	}
 }
 
 export function showMessage(type, message) {
-	document.querySelector('.message').style.display = 'block';
-	type === 'sucess' ? document.querySelector('.message').style.background = 'green' : document.querySelector('.message').style.background = 'red';
-	document.querySelector('.message p ').textContent = message;
+	if(!!document.querySelector('.message')) {
+		hideMessage();
+	}
+	const messageEl = document.createElement('div');
+	messageEl.classList.add('message', `${type}`);
+	const messageTextEl = document.createElement('p');
+	messageTextEl.textContent = message;
+	messageEl.appendChild(messageTextEl);
+	document.body.appendChild(messageEl);
 	setTimeout(() => {
-		document.querySelector('.message').style.display = 'none';
+		hideMessage()
 	}, 2000);
+}
+function hideMessage() {
+	document.querySelector('.message').parentNode.removeChild(document.querySelector('.message'));
 }
 
 export function renderInCard(imageUrl, dogName, colorFont, typeFont, breedValue) {
-	console.log(breedValue);
 	const dogNameInputEl = document.getElementById('dog-name');
 	dogNameInputEl.value = dogName;
 	const cardNameDog = document.getElementById('card-dog-name');
