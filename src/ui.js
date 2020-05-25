@@ -27,6 +27,7 @@ export function changeColor(color) {
 	dogNameEl.style.color = colors[color];
 }
 function changeSelect(valueEl , selectId) {
+	console.log(valueEl);
 	const selectElement = document.getElementById(selectId);
 	const selectOptions = selectElement.options;
 	for (let opt, j = 0; opt = selectOptions[j]; j++) {
@@ -36,7 +37,18 @@ function changeSelect(valueEl , selectId) {
         }
     }
 }
-export function renderInCard(imageUrl, dogName, colorFont, typeFont) {
+
+export function showMessage(type, message) {
+	document.querySelector('.message').style.display = 'block';
+	type === 'sucess' ? document.querySelector('.message').style.background = 'green' : document.querySelector('.message').style.background = 'red';
+	document.querySelector('.message p ').textContent = message;
+	setTimeout(() => {
+		document.querySelector('.message').style.display = 'none';
+	}, 2000);
+}
+
+export function renderInCard(imageUrl, dogName, colorFont, typeFont, breedValue) {
+	console.log(breedValue);
 	const dogNameInputEl = document.getElementById('dog-name');
 	dogNameInputEl.value = dogName;
 	const cardNameDog = document.getElementById('card-dog-name');
@@ -45,6 +57,8 @@ export function renderInCard(imageUrl, dogName, colorFont, typeFont) {
 	cardImage.src = imageUrl; 
 	changeFont(typeFont);
 	changeColor(colorFont);
-	changeSelect(imageUrl.slice(30, imageUrl.lastIndexOf('/')), 'breeds-select');
+	changeSelect(breedValue, 'breeds-select');
+	changeSelect(colorFont, 'colors-select');
+	changeSelect(typeFont, 'fonts-select');
 }
 

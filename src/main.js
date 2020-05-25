@@ -1,7 +1,7 @@
 import api, { getImageDog } from './api.js';
 import { getSelectedValue } from './utils.js';
 import { saveInLocalStorage, isLocalStorageEmpty, getInLocalStorage } from './storage.js';
-import { generateOptionsInSelect, changeFont, changeColor, renderInCard } from './ui.js';
+import { generateOptionsInSelect, changeFont, changeColor, renderInCard, showMessage } from './ui.js';
 import './assets/scss/style.scss';
 
 class App {
@@ -14,13 +14,13 @@ class App {
 		this.fontsEl = document.getElementById('fonts-select');
 		this.colors = ['Vermelho', 'Azul', 'Verde', 'Amarelo', 'Roxo'];
 		this.fonts = ['Roboto', 'Open Sans', 'Lato', 'Montserrat', 'Oswald'];
-		this.breeds = this.getBreeds();
+		this.breeds = [];
 		this.render();
 	}
 	async getBreeds() {
 		try {
 			const response = await api.get(`breeds/list/all`);
-			generateOptionsInSelect(response.data.message, this.breedsEl);
+			await generateOptionsInSelect(response.data.message, this.breedsEl);
 			return;
 		}catch(err) {
 			console.log(err);
@@ -68,22 +68,26 @@ class App {
 		formEl.addEventListener('submit', (event) => {
 			event.preventDefault();
 			const dogNameValue = this.dogNameInputEl.value;
-			const breedValue = this.cardImage.getAttribute('src');
+			const imageUrl = this.cardImage.getAttribute('src');
 			const colorValue = getSelectedValue('colors-select');
 			const fontValue = getSelectedValue('fonts-select');
+			const breedValue = getSelectedValue('breeds-select');
 			const date = new Date().getTime();
-			saveInLocalStorage(dogNameValue, breedValue, colorValue, fontValue, date);
+			saveInLocalStorage(dogNameValue, imageUrl, colorValue, fontValue, date, breedValue);
+			showMessage('sucess', 'Deu certo salvar');
+			
 		});
 	}
-	render() {
+	async render() {
+		this.breeds = await this.getBreeds();
 		generateOptionsInSelect(this.colors, this.colorsEl);
 		generateOptionsInSelect(this.fonts, this.fontsEl);
 		this.handleChangeInput();
 		this.handleOnSubmit();
 		this.handleChangeSelect();
 		if(isLocalStorageEmpty()) {
-			const { nameDog, breedImageUrl, colorFont, typeFont, date }  = JSON.parse(getInLocalStorage());
-			renderInCard(breedImageUrl, nameDog, colorFont, typeFont);
+			const { nameDog, breedImageUrl, colorFont, typeFont, date, breedValue }  = JSON.parse(getInLocalStorage());
+			renderInCard(breedImageUrl, nameDog, colorFont, typeFont, breedValue);
 		}
 	}
 }

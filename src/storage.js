@@ -1,10 +1,11 @@
-export function saveInLocalStorage(nameDog, breedImageUrl, colorFont, typeFont, date) {
+export function saveInLocalStorage(nameDog, breedImageUrl, colorFont, typeFont, date, breedValue) {
 	const dogInfo = {
 		nameDog,
 		breedImageUrl,
 		colorFont,
 		typeFont,
-		date
+		date,
+		breedValue
 	};
 	localStorage.setItem('dog-info', JSON.stringify(dogInfo));
 }

@@ -114,3 +114,14 @@ input[type="submit"] {
 	}
 }
 
+.message {
+	width: 250px;
+	height: 100px;
+	background: red;
+	border-radius: 0.25rem;
+	position: fixed;
+	right: 20px;
+	top: 105px;
+	display: none;
+	color: black;
+}
