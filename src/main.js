@@ -26,15 +26,6 @@ class App {
 			console.log(err);
 		}
 	}
-	generateOptionsInSelect(values, field) {
-		values.forEach(value => {
-			let optionEl = document.createElement('option');
-			optionEl.setAttribute('value', value);
-			optionEl.appendChild(document.createTextNode(value));
-			field.appendChild(optionEl);
-		});
-		return;
-	}
 	handleChangeInput() {
 		const input = document.getElementById('dog-name');
 		input.addEventListener('keyup', () => {
