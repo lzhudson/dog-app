@@ -5,7 +5,7 @@ Buscar em uma API pública todas as raças de cachorros.
 
 O usuário poderá digitar o nome do cachorro, estilizar a fonte e a cor e essa informação deverá ser armazenada no local storage.
 
-- Documentação Dog API: Dog API.
+- Documentação Dog API: [Dog API](https://dog.ceo/dog-api/).
 
 ### Interface
 Na tela deve conter:
